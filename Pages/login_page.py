@@ -1,17 +1,20 @@
 from .base_page import BasePage
-from Locators.main_page_loc import MainPageLoc
+from Locators.login_page_loc import LoginPageLoc
 
 
 class LoginPage(BasePage):
 
-    def open_login_page(self):
-        login_link = self.chrome.find_element(MainPageLoc.login_loc)
-        login_link.click()
+    def input_email(self, loc):
+        pass
 
-    # def verify_login_url(self):
+    def input_password(self):
+        pass
 
-    def verify_login_link(self):
-        assert self.is_element_present(MainPageLoc.login_loc), "Element is absent!"
+    def login(self):
+        self.input_email(LoginPageLoc.input_email_loc)
+        self.input_password()
+
+
 
 
 

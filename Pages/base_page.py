@@ -7,16 +7,15 @@ class BasePage:
     def __init__(self, driver, url):
         self.chrome = driver
         self.url = url
-        self.chrome.implicity_wait(5)
-        pass
+        self.chrome.implicitly_wait(5)
 
     def open(self):
         self.chrome.get(self.url)
 
     def is_element_present(self, locator):
         try:
-            self.chrome.find_element(locator)
+            if self.chrome.find_element(*locator):
+                return True
         except NoSuchElementException:
             return False
-        return True
 
