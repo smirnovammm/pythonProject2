@@ -13,6 +13,9 @@ class MainPage(BasePage):
     def verify_login_link(self):
         assert self.is_element_present(MainPageLoc.login_loc), "Element is absent!"
 
+    def verify_basket_is_empty(self):
+        assert self.is_element_present(MainPageLoc.basket_empty_loc), "Basket is not empty"
+
 
 
 

@@ -18,13 +18,25 @@ def open_browser():
 
 def test_guest_can_open_login_page(open_browser):
     link = "http://automationpractice.com/index.php"
-    page = MainPage(browser, link)
+    main_page = MainPage(browser, link)
 
     try:
-        page.open()
-        page.verify_login_link()
-        page.open_login_page()
+        main_page.open()
+        main_page.verify_login_link()
+        main_page.open_login_page()
         login_page = LoginPage(browser, url=browser.current_url)
         login_page.verify_login_link()
     finally:
         browser.quit()
+
+
+def test_basket_is_empty(open_browser):
+    link = "http://automationpractice.com/index.php"
+    main_page = MainPage(browser, link)
+
+    try:
+        main_page.open()
+        main_page.verify_basket_is_empty()
+    finally:
+        browser.quit()
+
