@@ -3,6 +3,7 @@ from Locators.main_page_loc import MainPageLoc
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import allure
 
 
 class MainPage(BasePage):
@@ -20,6 +21,7 @@ class MainPage(BasePage):
     def verify_login_link(self):
         assert self.is_element_present(MainPageLoc.login_loc), "Login link is not present!"
 
+    @allure.step('Basket is empty')
     def verify_basket_is_empty(self):
         assert self.is_element_present(MainPageLoc.basket_empty_loc), "Basket is not empty"
 
